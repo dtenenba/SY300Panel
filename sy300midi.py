@@ -25,8 +25,8 @@ def set_sy300(adr, data):
 
 def get_midi_ports():
     try:
-        sy300_in_port = [s for s in mido.get_input_names() if s.find('SY-300')][0]
-        sy300_out_port = [s for s in mido.get_output_names() if s.find('SY-300')][0]
+        sy300_in_port = [s for s in mido.get_input_names() if 'SY-300' in s][0]
+        sy300_out_port = [s for s in mido.get_output_names() if 'SY-300' in s][0]
     except IndexError:
         return False
     return {'in': sy300_in_port, 'out': sy300_out_port}

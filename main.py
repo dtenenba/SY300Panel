@@ -98,6 +98,7 @@ class PanelApp(App):
         global from_sy300  # Message from MIDI: sysex data=(65,16,0,0,0,19,18,32,0,32,1,3,60)
         for msg in from_sy300.iter_pending():
             if msg.type == 'sysex':
+                # print(f"got sysex msg: {msg}")
                 adr = msg.data[9:11]
                 for d in msg.data[11:-1]:
                     if adr in self.adr2knob:
