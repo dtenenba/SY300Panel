@@ -16,6 +16,7 @@ def req_sy300(adr, num_bytes):
 
 
 def set_sy300(adr, data):
+    print(f"sending: {[hex(x) for x in adr]} {data}")
     # pass in lists of the adr byts, the number of bytes in the message, and the data to be sent
     # returns a list with the checksum ready to be sent as a sysex message
     set_header = [0x41, 0x10, 0x00, 0x00, 0x00, 0x13, 0x12]

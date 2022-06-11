@@ -95,8 +95,10 @@ class PanelApp(App):
         to_sy300.send(set_sy300([0x20, 0x00, osc, adr], [val]))
 
     def callback_read_midi(self, dt):
+        # print("1")
         global from_sy300  # Message from MIDI: sysex data=(65,16,0,0,0,19,18,32,0,32,1,3,60)
         for msg in from_sy300.iter_pending():
+            # print("2")
             if msg.type == 'sysex':
                 # print(f"got sysex msg: {msg}")
                 adr = msg.data[9:11]
